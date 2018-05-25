@@ -1,0 +1,17 @@
+
+
+
+<div class="col-sm-4" *ngFor="let book of books"  id="list" [@listAnimation]="books.length" > 
+	<div class="card box">
+		<br>
+		<img class="img-book card-img-top center-block" src="{{book.img}}" style="border-radius: 50%;">
+		<div class="card-body">
+	    	<h3 class="card-title"><a [routerLink]="['overview', book.id]">{{book.title}}</a></h3>
+		   		 <p class="card-text">{{book.desc | slice:0:180}}
+		    	<br> <button mat-raised-button color="primary" data-id="{{book.id}}">Borrow</button></p>
+		</div>
+	</div>
+ <br> <br>	    
+ </div>
+
+ 	
