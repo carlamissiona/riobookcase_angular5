@@ -2,15 +2,15 @@
   <div class="form-row">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Admin">
+      <input type="text" name="username" [(ngModel)]="username" class="form-control" id="username" value={{username}} placeholder="Your Username">
     </div>
    
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password">
+    <input type="password" name="password" [(ngModel)]="password" value={{password}} class="form-control" id="password">
   </div>
    
     
-  <button mat-raised-button class="btn btn-primary">Submit</button>
+  <button mat-raised-button color="primary" (click)="loginCheck($event)">Submit</button>
  

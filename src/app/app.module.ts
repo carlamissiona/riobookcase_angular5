@@ -18,6 +18,7 @@ import { ListSectionComponent } from './list-section/list-section.component';
 import { HomeComponent } from './home/home.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BooksService } from './books.service';
+import { UsersService } from './users.service';
 import { NewGenreComponent } from './new-genre/new-genre.component';
 
 
@@ -71,7 +72,7 @@ const routes: Routes = [
    
   ],
   exports: [RouterModule,MatButtonModule],
-  providers: [BooksService],
+  providers: [BooksService,UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
