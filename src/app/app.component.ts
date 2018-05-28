@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BooksService } from './books.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UsersService } from './users.service';  
+import { GlobalService } from './global.service';
 
 
 @Component({
@@ -16,9 +17,9 @@ export class AppComponent {
   
   public books;
   public genres;
-  
+ 
 
-  constructor(private _bookService: BooksService) { }
+  constructor(private _bookService: BooksService,  private _globalService: GlobalService ) { }
 
    ngOnInit() {
     this.getBooks();

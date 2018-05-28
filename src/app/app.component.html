@@ -12,7 +12,9 @@
             <span flex style="flex: 1 1 auto;"> </span>
             <button mat-button color="info" [routerLink]="['new']"> New </button>
             <button mat-button color="info" [routerLink]="['new/genre']"> Genre </button>
-            <button mat-button color="warning" [routerLink]="['login']"> Login</button> 
+            <button *ngIf="_globalService.isAdmin" mat-button color="info" [routerLink]="['manage/books']"> Manage Books </button>
+            
+            <button mat-button color="warning" *ngIf="_globalService.isLoggedIn" [routerLink]="['login']"> Logout </button> 
              <span flex > &nbsp;&nbsp;&nbsp;&nbsp;</span>   
         
             <span style="text-align: right; width:320px;">
@@ -41,6 +43,7 @@
                 <li>
                     <a href="#">Overview</a>
                 </li>
+                <li><a href="/profile">{{ _globalService.loginMessage }}</a></li>
             </ul>
              
         </div> 
@@ -54,8 +57,9 @@
                   <span>    
                     
                     <button (click)="isActive = !isActive;" class="md-icon-button md-primary" mat-raised-button color="accent" id="menu-toggle"><i class="material-icons">menu</i></button>
-                  </span>Rio's Book Case
+                  </span>Rio's Book Case 
                 </h3>
+
                <br><br><br>
                 <div class="main">
                     <div class="row">

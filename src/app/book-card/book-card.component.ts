@@ -50,7 +50,7 @@ export class BookCardComponent implements OnInit {
    getBooks() {
     this._bookService.getBooks().subscribe(
        // the first argument is a function which runs on success
-      data => { this.books = data},
+      data => { this.books = data[0]; console.log(data);},
        // the second argument is a function which runs on error
       err => console.error(err),
          // the third argument is a function which runs on completion

@@ -10,7 +10,7 @@
     <label for="password">Password</label>
     <input type="password" name="password" [(ngModel)]="password" value={{password}} class="form-control" id="password">
   </div>
-   
-    
+   <strong>{{_globalService.errorMessage}}</strong>  
+    <br/>
   <button mat-raised-button color="primary" (click)="loginCheck($event)">Submit</button>
  

@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BooksService } from './books.service';
 import { UsersService } from './users.service';
+import { GlobalService } from './global.service';
 import { NewGenreComponent } from './new-genre/new-genre.component';
 
 
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'overview/:id',
     component: OverviewComponent
+  },
+  {
+    path: 'manage/books',
+    component: ListBookComponent
   }
 ];
 
@@ -72,7 +77,7 @@ const routes: Routes = [
    
   ],
   exports: [RouterModule,MatButtonModule],
-  providers: [BooksService,UsersService],
+  providers: [BooksService,UsersService,GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
