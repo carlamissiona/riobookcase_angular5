@@ -1,0 +1,61 @@
+ <div class="container"> 
+     <div class="col-md-12"> 
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" value="{{book.title}}" placeholder="title">
+            </div>
+           
+          </div>
+    </div>
+
+    <div class="col-md-12">
+       <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" id="author"  value="{{book.author}}" placeholder="Charles Darwin">
+          </div>
+    </div>
+    </div>
+    <div class="col-md-12">
+       <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="description">Description</label>
+            <textarea  class="form-control"  style="min-height:400px;" id="description" placeholder="Tell us why would anyone read this?">
+            	
+
+            </textarea>
+          </div>
+          </div>
+    </div>
+    <div class="col-md-12">
+          <div class="form-row">
+            <div class="form-group col-md-12 ">
+              <label for="genre">Genre</label>
+          		<select id="genre" class="form-control form-control-lg">
+          		  <option>History</option>
+          		  <option>Drama</option>
+          		  <option>Horror</option>
+          		  <option>Sci-fi</option>
+          		</select>
+            </div>
+            </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                 	<label for="librarysec">Library Section</label>
+              		<select id="librarysec" class="form-control form-control-lg">
+              		  <option>History</option>
+              		  <option>Drama</option>
+              		  <option>Horror</option>
+              		  <option>Sci-fi</option>
+              		</select>
+                  <br><br>
+                 <button mat-raised-button color="primary" >Submit</button>
+                </div>
+            </div>
+         
+             
+    </div>
+  
+</div>
+ 

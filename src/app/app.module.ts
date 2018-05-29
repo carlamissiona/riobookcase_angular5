@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { OverviewComponent } from './overview/overview.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +22,7 @@ import { BooksService } from './books.service';
 import { UsersService } from './users.service';
 import { GlobalService } from './global.service';
 import { NewGenreComponent } from './new-genre/new-genre.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 
 const routes: Routes = [
@@ -47,7 +49,11 @@ const routes: Routes = [
   {
     path: 'manage/books',
     component: ListBookComponent
-  }
+  },
+   {
+    path: 'edit/book/:id',
+    component: EditBookComponent
+  },
 ];
 
 
@@ -64,6 +70,7 @@ const routes: Routes = [
     HomeComponent,
     BookCardComponent,
     NewGenreComponent,
+    EditBookComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -77,7 +84,7 @@ const routes: Routes = [
    
   ],
   exports: [RouterModule,MatButtonModule],
-  providers: [BooksService,UsersService,GlobalService],
+  providers: [BooksService,UsersService,GlobalService,LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

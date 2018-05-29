@@ -34,23 +34,24 @@ export class LoginComponent implements OnInit {
             if( data['error_login'] == 1 ){
 
               console.log("Show error" + data['msg']);
-              this._globalService.errorMessage = data['msg'];
+              this._globalService.set_errorMessage(data['msg']);
             }else{
                // if login valid
                console.log("redirect to list with borrow button seen");
                console.log(data);
-               this._globalService.loginMessage = "You are login as "+ data['user_log_username'];
+               this._globalService.set_loginMessage("You are login as "+ data['user_log_username']);
                console.log(data['user_log_role'].includes('ROLE_ADMIN'));
-                  this._globalService.isLoggedIn= true;
-              if( data['user_log_role'].includes('ROLE_ADMIN') == true ) {
-                  this._globalService.userRole = "Admin";
-                  this._globalService.isAdmin= true;
-                
-       
-              }else{
-                  this._globalService.isAdmin= false;
+                  this._globalService.set_isLoggedIn(true);
+                if( data['user_log_role'].includes('ROLE_ADMIN') == true ) {
+                    this._globalService.set_userRole("Admin");
+                    this._globalService.set_isAdmin( true );
+                    this._globalService.set_token( data['bearer']);
+                  
+         
+                 }else{
+                    this._globalService.set_isAdmin( false );
+                 }
                }
-
                this.router.navigate(['/']);
 
 

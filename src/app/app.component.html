@@ -7,14 +7,14 @@
 
         <mat-toolbar color="primary">
           <mat-toolbar-row>
-              <button mat-button [routerLink]="['']">   FFUF Manila   </button>  
+            <button mat-button [routerLink]="['']">   FFUF Manila   </button>  
             
             <span flex style="flex: 1 1 auto;"> </span>
-            <button mat-button color="info" [routerLink]="['new']"> New </button>
+            <button mat-button color="info" *ngIf="_globalService.get_isAdmin()"  [routerLink]="['new']"> Add Book </button>
             <button mat-button color="info" [routerLink]="['new/genre']"> Genre </button>
-            <button *ngIf="_globalService.isAdmin" mat-button color="info" [routerLink]="['manage/books']"> Manage Books </button>
+            <button *ngIf="_globalService.get_isAdmin()" mat-button color="info" [routerLink]="['manage/books']"> Manage Books </button>
             
-            <button mat-button color="warning" *ngIf="_globalService.isLoggedIn" [routerLink]="['login']"> Logout </button> 
+            <button mat-button color="warning" *ngIf="_globalService.get_isLoggedIn()" [routerLink]="['login']"> Logout </button> 
              <span flex > &nbsp;&nbsp;&nbsp;&nbsp;</span>   
         
             <span style="text-align: right; width:320px;">
@@ -43,7 +43,7 @@
                 <li>
                     <a href="#">Overview</a>
                 </li>
-                <li><a href="/profile">{{ _globalService.loginMessage }}</a></li>
+                <li><a href="/profile">{{ _globalService.get_loginMessage() }}</a></li>
             </ul>
              
         </div> 

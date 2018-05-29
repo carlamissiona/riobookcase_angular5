@@ -1,11 +1,15 @@
-  <div class="col-sm-6"> 
-    <img class="img-book" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930">
-    <h3>Title of this book</h3>
-    <p>Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc 
-    <br> 
-        <button class="btn-borrow md-raised" mat-raised-button color="primary">Borrow</button>
-        <button class="btn-overview md-raised" mat-raised-button color="primary">Overview</button>
-        <button class="btn-related md-raised" mat-raised-button color="primary">Related Books</button>
+<div class="col-sm-6" *ngFor="let book of books"  > 
+	<div *ngIf="book.id == id" style="float:left;margin:auto -30%;width:90%;" > 
+		    <img class="img-book text-center" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930">
+		    <h3>{{ book.title }}</h3>
+		    <p>Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc 
+		    <br> 
+		        <button class="btn-borrow md-raised" mat-raised-button color="primary">Borrow</button>
+		        <button class="btn-overview md-raised" mat-raised-button color="primary">Overview</button>
+		        <button class="btn-related md-raised" mat-raised-button color="primary" 
+		        [routerLink]="['/edit/book/', id]" >Edit</button>
 
-    </p>
+
+		    </p>
+    </div>
 </div>  
