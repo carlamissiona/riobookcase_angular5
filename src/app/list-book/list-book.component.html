@@ -21,7 +21,8 @@
 		        <td>{{ book.section }}</td>
 		        <td> This book is out !</td>
 		        <td> 
-		           <a [routerLink]="['/overview', book.id]">Read</a>
+		            <button mat-raised-button color="accent"  [routerLink]="['/overview', book.id]">Read</button> 
+		            <button mat-raised-button color="primary"  (click)="deleteBook(book.id)"  >Delete</button>
 		        </td>
 		      </tr>
 		    </tbody>
