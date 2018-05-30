@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { BooksService } from '../books.service';
 
+import { GlobalService } from '../global.service';
+
 
 @Component({
   selector: 'app-book-card',
@@ -39,19 +41,18 @@ export class BookCardComponent implements OnInit {
   public genres;
 
 
-  constructor(private _bookService: BooksService) { }
+  constructor(private _bookService: BooksService, private _globalService: GlobalService) { }
 
   ngOnInit() {
     this.getBooks();
-    // this.getGenres();
+     
 
    }
 
    getBooks() {
     this._bookService.getBooks().subscribe(
-       // the first argument is a function which runs on success
-      data => { this.books = data[0]; console.log(data);},
-       // the second argument is a function which runs on error
+      data => { this.books = data[0]; console.log(data); },
+    
       err => console.error(err),
          // the third argument is a function which runs on completion
       () => console.log('done loading foods')

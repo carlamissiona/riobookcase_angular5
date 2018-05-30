@@ -33,6 +33,39 @@ export class BooksService {
 			return response;
     }
 
+ getGenre() {
+  		
+       
+		  	const headers = new HttpHeaders();	 
+
+			headers.set('Origin', 'http://localhost:4200');
+			headers.set('Access-Control-Allow-Headers', '*');
+			headers.set('Access-Control-Request-Method', '*');
+			headers.set('Access-Control-Allow-Origin', '*');
+			headers.set('Content-Type', 'application/json');
+			let url = `http://127.0.0.1:8000/genre/api/list/`;
+			
+			let response = this.http.get(url,{ headers });
+
+			return response;
+  }
+   getSection() {
+  		
+       
+		  	const headers = new HttpHeaders();	 
+
+			headers.set('Origin', 'http://localhost:4200');
+			headers.set('Access-Control-Allow-Headers', '*');
+			headers.set('Access-Control-Request-Method', '*');
+			headers.set('Access-Control-Allow-Origin', '*');
+			headers.set('Content-Type', 'application/json');
+			let url = `http://127.0.0.1:8000/librarysection/api/list/`;
+			
+			let response = this.http.get(url,{ headers });
+
+			return response;
+  }
+
 
   getBooks() {
   			//"90d5c61dc3dda0b3730b575be5abb903"

@@ -6,8 +6,13 @@
 		<img class="img-book card-img-top center-block" src="{{book.img}}" style="border-radius: 50%;max-width: ">
 		<div class="card-body">
 	    	<h5 class="card-title"><a [routerLink]="['overview', book.id]">{{book.title}}</a></h5>
-		   		 <p class="card-text">{{book.desc | slice:0:180}}
-		    	<br> <button mat-raised-button color="primary" data-id="{{book.id}}">Borrow</button></p>
+		   	<p class="card-text">{{book.desc | slice:0:180}}
+		    <br/> 
+		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == false" data-id="{{book.id}}"> Borrow</button>
+
+		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == true" [routerLink]="['/edit/book/'+book.id]"  data-id="{{book.id}}"> Edit</button>
+
+			</p>
 		</div>
 	</div>
  <br> <br>	    

@@ -1,5 +1,5 @@
  <div class="container"> 
-     <div class="col-md-12"> 
+     <div class="col-md-12 col-sm-offset-1"> 
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="title">Title</label>
@@ -9,7 +9,7 @@
           </div>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-offset-1">
        <div class="form-row">
           <div class="form-group col-md-12">
             <label for="author">Author</label>
@@ -17,7 +17,7 @@
           </div>
     </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-offset-1">
        <div class="form-row">
           <div class="form-group col-md-12">
             <label for="description">Description</label>
@@ -28,33 +28,25 @@
           </div>
           </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-offset-1">
           <div class="form-row">
             <div class="form-group col-md-12 ">
               <label for="genre">Genre</label>
-          		<select id="genre" class="form-control form-control-lg">
-          		  <option>History</option>
-          		  <option>Drama</option>
-          		  <option>Horror</option>
-          		  <option>Sci-fi</option>
-          		</select>
+              <select id="genre" [(ngModel)]="book.genre"  class="form-control form-control-lg">
+                <option *ngFor="let genre of genres"  >{{ genre.name }}</option>                 
+              </select>
             </div>
             </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                 	<label for="librarysec">Library Section</label>
-              		<select id="librarysec" class="form-control form-control-lg">
-              		  <option>History</option>
-              		  <option>Drama</option>
-              		  <option>Horror</option>
-              		  <option>Sci-fi</option>
-              		</select>
-                  <br><br>
-                 <button mat-raised-button color="primary"  (click)="editBook($event)" >Submit</button>
-                </div>
+    </div>
+     <div class="col-md-12 col-sm-offset-1">
+          <div class="form-row">
+            <div class="form-group col-md-12 ">
+              <label for="section">Library Section</label>
+              <select id="section" [(ngModel)]="book.section"  class="form-control form-control-lg">
+                <option *ngFor="let section of sections"  >{{ section.name }}</option>                 
+              </select>
             </div>
-         
-             
+          </div>
     </div>
   
 </div>

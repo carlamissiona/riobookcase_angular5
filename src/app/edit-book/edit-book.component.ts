@@ -13,9 +13,10 @@ import { Router, Routes, RouterModule } from '@angular/router';
 export class EditBookComponent implements OnInit {
 
   
-  public book;
+  public book = {};
   public genres;
-  public id;
+  public sections;
+  public id; 
   public token;
  
   
@@ -36,14 +37,17 @@ export class EditBookComponent implements OnInit {
     console.log(this.book);
     console.log('Above is the book form obj!!!!!');
     this.getOneBook();
-
+    this.getSections();
+    this.getGenres();
    }
 
  
 
   getOneBook(){
   	this._bookService.getOneBook(this.id, this.token).subscribe(
-      data => {  console.log('this is one book=>>>>>.');  this.book = data.book[0]; }, 
+      data => {  this.book = data.book[0];
+        //this.book = data;
+       }, 
       err => console.error(err),
       () => console.log('done loading foods')
     );
@@ -70,6 +74,42 @@ export class EditBookComponent implements OnInit {
     );
    
 
+  }
+
+
+  getGenres(){
+ 
+    this._bookService.getGenre().subscribe(
+      data => { 
+        //this.router.navigate(['/edit/book/'+this.book.id]);
+        this.genres = data[0]; 
+        console.log(this.genres);
+        console.log("after fetch");
+
+      }, 
+      err => console.error(err),
+      () => console.log('done loading foods')
+    );
+   
+  }
+
+ 
+  getSections(){
+  
+   
+    this._bookService.getSection().subscribe(
+      data => { 
+        console.log("all section ===> "); console.log(data);  
+        this.sections = data[0];         
+        console.log(data[0]);
+        console.log("after fetch section");
+
+      }, 
+      err => console.error(err),
+      () => console.log('done loading foods')
+    );
+   
+   
   }
 
 }

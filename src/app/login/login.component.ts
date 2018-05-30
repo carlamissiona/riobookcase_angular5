@@ -46,11 +46,12 @@ export class LoginComponent implements OnInit {
                     this._globalService.set_userRole("Admin");
                     this._globalService.set_isAdmin( true );
                     this._globalService.set_token( data['bearer']);
-                  
+                  console.log(     "After loginnnn "+   this._globalService.get_isAdmin());
          
                  }else{
                     this._globalService.set_isAdmin( false );
                  }
+                   console.log(     "After loginnnn "+   this._globalService.get_isAdmin());
                }
                this.router.navigate(['/']);
 

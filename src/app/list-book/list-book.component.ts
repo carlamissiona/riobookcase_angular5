@@ -21,28 +21,29 @@ export class ListBookComponent implements OnInit {
   public id;
 
 
-  constructor(private _bookService: BooksService, private activeRoute: ActivatedRoute 
+  constructor(private _bookService: BooksService, private activeRoute: ActivatedRoute ,
               private _globalService: GlobalService) { }
 
   ngOnInit() {
     this.getBooks();
     this.token = this._globalService.get_token();
     console.log(  this.id + "----"+ this.token);
-    console.log(this.book);
+    //  console.log(this.book);
     console.log('Above is the book form obj!!!!!');
 
    }
 
    getBooks() {
     this._bookService.getBooks().subscribe(
-       // the first argument is a function which runs on success
+
       data => { this.books = data[0]; console.log(data);},
-       // the second argument is a function which runs on error
+
       err => console.error(err),
-         // the third argument is a function which runs on completion
+      
       () => console.log('done loading foods')
     );
   }
+
   deleteBook(id) {
 
     console.log(this.token+'deleting books' + id);
