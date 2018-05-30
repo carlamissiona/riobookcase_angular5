@@ -21,7 +21,7 @@
        <div class="form-row">
           <div class="form-group col-md-12">
             <label for="description">Description</label>
-            <textarea  class="form-control"  style="min-height:400px;" id="description" placeholder="Tell us why would anyone read this?">
+            <textarea  class="form-control"  style="min-height:290px;" id="description" placeholder="Tell us why would anyone read this?">
             	
 
             </textarea>
@@ -32,19 +32,28 @@
           <div class="form-row">
             <div class="form-group col-md-12 ">
               <label for="genre">Genre</label>
-              <select id="genre" [(ngModel)]="book.genre"  class="form-control form-control-lg">
-                <option *ngFor="let genre of genres"  >{{ genre.name }}</option>                 
+              <select id="genre" [(ngModel)]="book.genre_id" value="{{ book.genre_id }}" class="form-control form-control-lg">
+                <option *ngFor="let genre of genres" selected="genre.id == book.genre_id"   value="{{ genre.id }}">{{ genre.name }}</option>   
               </select>
             </div>
             </div>
-    </div>
+    </div> 
      <div class="col-md-12 col-sm-offset-1">
           <div class="form-row">
             <div class="form-group col-md-12 ">
               <label for="section">Library Section</label>
-              <select id="section" [(ngModel)]="book.section"  class="form-control form-control-lg">
-                <option *ngFor="let section of sections"  >{{ section.name }}</option>                 
+              <select id="section" [(ngModel)]="book.section_id"  class="form-control form-control-lg">
+                <option *ngFor="let section of sections" selected="section.id == book.section_id" value="{{ section.id }}">{{ section.name }}</option>                 
               </select>
+            </div>
+          </div>
+    </div>
+      <div class="col-md-12 col-sm-offset-1">
+          <div class="form-row">
+            <div class="form-group col-md-12 ">
+
+                <button mat-raised-button color="primary" (click)="editBook(event)"   data-id="{{book.book_id}}">Edit</button>
+
             </div>
           </div>
     </div>

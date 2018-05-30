@@ -8,9 +8,9 @@
 	    	<h5 class="card-title"><a [routerLink]="['overview', book.id]">{{book.title}}</a></h5>
 		   	<p class="card-text">{{book.desc | slice:0:180}}
 		    <br/> 
-		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == false" data-id="{{book.id}}"> Borrow</button>
+		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == false" data-id="{{book.book_id}}"> Borrow</button>
 
-		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == true" [routerLink]="['/edit/book/'+book.id]"  data-id="{{book.id}}"> Edit</button>
+		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == true" [routerLink]="['/edit/book/'+book.book_id]"  data-id="{{book.book_id}}"> Edit</button>
 
 			</p>
 		</div>
@@ -18,4 +18,4 @@
  <br> <br>	    
  </div>
 
- 	
+ 	  

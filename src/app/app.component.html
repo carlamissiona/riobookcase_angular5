@@ -9,11 +9,10 @@
           <mat-toolbar-row>
             <button mat-button [routerLink]="['']">   FFUF Manila   </button>  
             
-            <span flex style="flex: 1 1 auto;"> </span>
-            <button mat-button color="info" [routerLink]="['new/genre']"> Genre </button>
+            <span flex style="flex: 1 1 auto;"> </span> 
             <button *ngIf="_globalService.get_isAdmin()" mat-button color="info" [routerLink]="['manage/books']"> Manage Books </button>
             
-            <button mat-button color="warning" *ngIf="_globalService.get_isLoggedIn()" [routerLink]="['login']"> Logout </button> 
+            <button mat-button color="warning" *ngIf="_globalService.get_isLoggedIn()"  (click)="logout()"> Logout </button> 
              <span flex > &nbsp;&nbsp;&nbsp;&nbsp;</span>   
         
             <span style="text-align: right; width:320px;">

@@ -54,6 +54,7 @@ const routes: Routes = [
     path: 'edit/book/:id',
     component: EditBookComponent
   },
+    
 ];
 
 
@@ -89,7 +90,7 @@ const routes: Routes = [
 })
 export class AppModule { 
     
-     
+    
 
 
 

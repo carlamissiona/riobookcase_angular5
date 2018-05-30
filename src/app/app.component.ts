@@ -4,6 +4,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UsersService } from './users.service';  
 import { GlobalService } from './global.service';
 
+import { Router, Routes, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -19,14 +21,24 @@ export class AppComponent {
   public genres;
  
 
-  constructor(private _bookService: BooksService,  private _globalService: GlobalService ) { }
+  constructor(private _bookService: BooksService,  private _globalService: GlobalService, private router: Router ) { }
 
    ngOnInit() {
     this.getBooks();
     // this.getGenres();
 
    }
+  logout(){
+        alert("hi logout");
 
+        this.router.navigate(['']);
+        this._globalService.set_loginMessage("You are not Login");
+        this._globalService.set_isLoggedIn(false);
+        this._globalService.clear_userRole();
+        this._globalService.clear_token();
+        this._globalService.clear_isAdmin();
+        this._globalService.clear_username(); 
+  }
 
 
 

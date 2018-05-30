@@ -22,7 +22,7 @@ export class ListBookComponent implements OnInit {
 
 
   constructor(private _bookService: BooksService, private activeRoute: ActivatedRoute ,
-              private _globalService: GlobalService) { }
+              private _globalService: GlobalService,  private router: Router) { }
 
   ngOnInit() {
     this.getBooks();

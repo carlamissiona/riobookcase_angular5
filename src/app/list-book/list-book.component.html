@@ -2,8 +2,8 @@
 
 <div class="row">
 	
-	<div class="container">
-			
+	<div class="container">			
+
  		<div class="col-sm-12 col-sm-offset-1"> 
 			<button mat-raised-button color="accent"  [routerLink]="['/new']">Add A Book</button> <br/><br/>
 		</div>
@@ -34,8 +34,8 @@
 		        		<span *ngIf="book.isborrowed == 0" >Available</span> 
 		        		<span *ngIf="book.isborrowed == 1">The book is out !</span></td>
 		        <td> 
-		            <button mat-raised-button color="accent"  [routerLink]="['/overview/'+book.book_id]">Read</button> 
-		            <button mat-raised-button color="primary"  (click)="deleteBook(book.book_id)"  >Delete</button>
+		            <button mat-raised-button color="accent"  [routerLink]="['/edit/book/'+book.book_id]">Edit</button> 
+		            <button mat-raised-button color="primary" (click)="deleteBook(book.book_id)">Delete</button>
 		        </td>
 		      </tr>
 		    </tbody>

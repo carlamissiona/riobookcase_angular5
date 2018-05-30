@@ -26,7 +26,7 @@ export class NewBookComponent implements OnInit {
 
 
   constructor(private _bookService: BooksService, private activeRoute: ActivatedRoute ,
-              private _globalService: GlobalService) { }
+              private _globalService: GlobalService, private router: Router) { }
   
  
   ngOnInit() {
@@ -35,17 +35,16 @@ export class NewBookComponent implements OnInit {
     this.getGenres();
     this.getSection();
   }
-
- /* addBook(){
+  addBook(){
 
     let form = JSON.stringify(this.book);
     console.log(this.book); console.log("----");
     console.log(form);
-    console.log("editeditclicked");
-  	this._bookService.updateBook(this.token, this.book.id, form).subscribe(
+    console.log("adding ");
+    this._bookService.addBook(this.token, this.book.id, form).subscribe(
       data => { 
         console.log("update===> after saved"); console.log(data);  
-      	//this.router.navigate(['/edit/book/'+this.book.id]);
+      	this.router.navigate(['/manage/books']);
       	this.book = data.book[0]; 
        
       	console.log(data[0]);
@@ -55,8 +54,10 @@ export class NewBookComponent implements OnInit {
       err => console.error(err),
       () => console.log('done loading foods')
     );
+
+  }
    
-  */
+ 
  
   getGenres(){
  

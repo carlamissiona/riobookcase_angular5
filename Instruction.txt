@@ -1,0 +1,37 @@
+
+Requirement
+PHP 7.2
+Xampp
+Composer
+Nodejs 
+
+Instructions
+API
+
+
+1. Unzip folder to any directory open this path to on the command line
+2. On xampp start mysql and php service
+2. Using cmd run this command inside path : php bin/console doctrine:schema:update --force
+2. Using cmd run this command inside path : php bin/console fos:user:create 
+3. Supply any details for the user you will use as regular user
+    username : admin    
+    email : mail@mail.com
+    password : zxcv
+4. Using cmd run this command inside path : php bin/console  server:run -port:8000
+5. Browse the Admin Login 
+   http://localhost:8000/login
+
+FrontEnd
+
+1. Open Chrome and install webserver chrome addon
+2. Unzip the Angular app on any directory
+3. Open the webserver chrome addon option
+    - set the following configuration
+    - root directory of the angular app 
+    - port 4200
+    - switch server on
+4. Browse the Site  
+   http://localhost:4200/
+
+
+

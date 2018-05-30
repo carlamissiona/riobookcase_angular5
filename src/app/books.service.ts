@@ -114,7 +114,7 @@ export class BooksService {
 		  	const headers = new HttpHeaders();	 
 
 			let postform:FormData = new FormData();
-
+            
     		postform.append('form', form);
     		postform.append('id', id);
     		postform.append('token', token );
@@ -128,6 +128,37 @@ export class BooksService {
 			headers.set('Content-Type', 'application/json');
 
 				let url = `http://127.0.0.1:8000/book/api/edit/`;
+			//let url = `http://127.0.0.1:8000/book/api/list/`;
+			
+			let response = this.http.post(url, postform , {headers});
+
+			return response;
+
+
+    }
+
+
+    addBook( token: string , id: string , form: string ){
+
+    		// form is stringified array
+
+		  	const headers = new HttpHeaders();	 
+
+			let postform:FormData = new FormData();
+            
+    		postform.append('form', form);
+    		postform.append('id', id);
+    		postform.append('token', token );
+    		console.log(form);
+    		console.log("====+++++++++");
+
+    		headers.set('Origin', 'http://localhost:4200');
+			headers.set('Access-Control-Allow-Headers', '*');
+			headers.set('Access-Control-Request-Method', '*');
+			headers.set('Access-Control-Allow-Origin', '*');
+			headers.set('Content-Type', 'application/json');
+
+		    let url = `http://127.0.0.1:8000/book/api/new/`;
 			//let url = `http://127.0.0.1:8000/book/api/list/`;
 			
 			let response = this.http.post(url, postform , {headers});
