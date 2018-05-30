@@ -137,6 +137,32 @@ export class BooksService {
 
     }
 
+    borrowBook( id: string){
+
+    		// form is stringified array
+
+		  	const headers = new HttpHeaders();	 
+
+			let postform:FormData = new FormData();
+             
+    		postform.append('id', id);
+    		postform.append('isborrowed', '1' );
+    		 
+    		headers.set('Origin', 'http://localhost:4200');
+			headers.set('Access-Control-Allow-Headers', '*');
+			headers.set('Access-Control-Request-Method', '*');
+			headers.set('Access-Control-Allow-Origin', '*');
+			headers.set('Content-Type', 'application/json');
+
+		    let url = `http://127.0.0.1:8000/book/api/borrow/`; 
+			
+			let response = this.http.post(url, postform , {headers});
+
+			return response;
+
+
+    }
+
 
     addBook( token: string , id: string , form: string ){
 

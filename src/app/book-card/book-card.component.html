@@ -1,14 +1,15 @@
 
 
 <div class="col-sm-4" *ngFor="let book of books"  id="list" [@listAnimation]="books.length" > 
-	<div class="card box" style="min-width:310px;margin-left: 20px;">
+	<div class="card box" style="min-width:310px;margin-left: 20px;min-height: 440px;">
 		<br>
 		<img class="img-book card-img-top center-block" src="{{book.img}}" style="border-radius: 50%;max-width: ">
 		<div class="card-body">
-	    	<h5 class="card-title"><a [routerLink]="['overview', book.id]">{{book.title}}</a></h5>
+	    	<h5 class="card-title"><a [routerLink]="['overview', book.book_id]">{{book.title}}</a></h5>
 		   	<p class="card-text">{{book.desc | slice:0:180}}
-		    <br/> 
-		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == false" data-id="{{book.book_id}}"> Borrow</button>
+		     
+		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == false && book.isborrowed == 0 " data-id="{{book.book_id}}" (click)="borrow(book.book_id)">Borrow</button>
+		     
 
 		    	<button mat-raised-button color="primary" *ngIf="_globalService.get_isAdmin() == true" [routerLink]="['/edit/book/'+book.book_id]"  data-id="{{book.book_id}}"> Edit</button>
 

@@ -45,19 +45,21 @@ export class ListBookComponent implements OnInit {
   }
 
   deleteBook(id) {
+     if(confirm("Are you sure you want to delete the book?")){
 
+     }else{
+       return false;
+     }
     console.log(this.token+'deleting books' + id);
-    this._bookService.deleteBook(id,this.token).subscribe(
-       // the first argument is a function which runs on success
+    this._bookService.deleteBook(id,this.token).subscribe( 
       data => { 
-            console.log(data);
+          console.log(data);
+
+          this.router.navigate(['/']);
 
 
-
-      },
-       // the second argument is a function which runs on error
-      err => console.error(err),
-         // the third argument is a function which runs on completion
+      }, 
+      err => console.error(err), 
       () => console.log('done loading foods')
     );
   }

@@ -3,4 +3,7 @@
 
 
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-
+body{
+	background:#8A88B3!important;
+}
+#sidebar-wrapper li a { color:#fff!important; }

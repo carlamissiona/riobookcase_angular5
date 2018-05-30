@@ -59,4 +59,23 @@ export class BookCardComponent implements OnInit {
     );
   }
 
+  borrow(id){
+       
+      this._bookService.borrowBook(id).subscribe(
+        data => { 
+         
+      
+          console.log(data);
+          console.log("after borrow");
+          alert("You had successfully borrowed a book.");
+          this.router.navigate(['']);
+        }, 
+        err => console.error(err),
+        () => console.log('done loading foods')
+      );
+   
+
+  }
+
+
 }

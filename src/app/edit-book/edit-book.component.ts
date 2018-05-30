@@ -66,7 +66,7 @@ export class EditBookComponent implements OnInit {
       	console.log(data.book);
       	console.log(data);
       	console.log("after fetch");
-        this.router.navigate(['/manage/books/');
+        this.router.navigate(['/manage/books/']);
       }, 
       err => console.error(err),
       () => console.log('done loading foods')

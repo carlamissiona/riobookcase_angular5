@@ -29,7 +29,7 @@ export class AppComponent {
 
    }
   logout(){
-        alert("hi logout");
+        alert("You are about to logout");
 
         this.router.navigate(['']);
         this._globalService.set_loginMessage("You are not Login");
@@ -40,15 +40,31 @@ export class AppComponent {
         this._globalService.clear_username(); 
   }
 
+   borrow(id){
+       
+      this._bookService.borrowBook(id).subscribe(
+        data => { 
+         
+      
+          console.log(data);
+          console.log("after borrow");
+          alert("You had successfully borrowed a book.");
+          this.router.navigate(['']);
+        }, 
+        err => console.error(err),
+        () => console.log('done loading foods')
+      );
+   
 
+  }
 
     getBooks() {
     this._bookService.getBooks().subscribe(
-     	 // the first argument is a function which runs on success
+     	 
       data => { this.books = data; },
-     	 // the second argument is a function which runs on error
+     	 
       err => console.error(err),
-      	 // the third argument is a function which runs on completion
+       
       () => console.log('done loading foods')
     );
   }

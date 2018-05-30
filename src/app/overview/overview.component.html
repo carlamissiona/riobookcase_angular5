@@ -1,8 +1,10 @@
 <div class="col-sm-6" *ngFor="let book of books" > 
-	<div *ngIf="book.book_id == id" style="float:left;margin:auto -30%;width:90%;" > 
-		    <img class="img-book text-center" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930">
-		    <h3>{{ book.title }} {{ book.id }}</h3>
-		    <p> {{ book.id == id }} Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc 
+	 
+	<div *ngIf="book.book_id == id" class="row" style="float:left;"> 
+		   <div class="col-md-4"> <img class="img-book text-center" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930"></div>
+		   <div class="col-md-6 col-md-offset-2">
+		   		 <h3>{{ book.title }} {{ book.id }}</h3>
+		    <p> {{ book.id == id }} I find these debates about reading as enjoyably incensing as anyone – and, just to be clear, I deplore the restrictions placed on prisoners' access to books, which seems less of a storm in a teacup and more of a violation of basic human rights. However, taken alongside the general hum of social networks, book groups, the media-shopping complex and the literary festival season now upon us, I mistrust my own eagerness to engage with this sort of stuff. It is a very good way not to get any reading done.
 		    <br/> 
 		        <button class="btn-borrow md-raised" mat-raised-button color="primary">Borrow</button>
 		        <button class="btn-related md-raised" mat-raised-button color="primary" 
@@ -10,5 +12,8 @@
 
 
 		    </p>
+		    </div>
+		     
+		    
     </div>
 </div>  
