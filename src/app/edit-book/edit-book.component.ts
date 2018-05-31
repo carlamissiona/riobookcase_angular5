@@ -10,10 +10,10 @@ import { Router, Routes, RouterModule } from '@angular/router';
   templateUrl: './edit-book.component.html',
   styleUrls: ['./edit-book.component.css']
 })
+ 
 export class EditBookComponent implements OnInit {
-
-  
-  public book ;
+   
+  public book = {'id': '', 'title': '', 'author': '' , 'book_id':''};
   public genres;
   public sections;
   public id; 
@@ -22,18 +22,14 @@ export class EditBookComponent implements OnInit {
     
 
 
-  constructor(private _bookService: BooksService, private _globalService: GlobalService, private activeRoute: ActivatedRoute , 
-  			 private router: Router ) { }
+  constructor(private _bookService: BooksService, private _globalService: GlobalService, private activeRoute: ActivatedRoute ,  private router: Router ) { }
  
 
   ngOnInit() {
     let routeParams = this.activeRoute.snapshot.params;
     this.token = this._globalService.get_token();
     this.id = routeParams.id;
-    this.getOneBook();
-    console.log("++++++++++++++++++++++");
-    console.log(this.book);
-    console.log('Above is the book form obj!!!!!');
+    this.getOneBook(); 
     
     this.getSections();
     this.getGenres();
@@ -43,9 +39,7 @@ export class EditBookComponent implements OnInit {
 
   getOneBook(){
   	this._bookService.getOneBook(this.id, this.token).subscribe(
-      data => { 
-        console.log("!!----!!");
-        console.log(data.book[0]);
+      data => {      
         this.book = data.book[0];
        }, 
       err => console.error(err),
@@ -56,16 +50,11 @@ export class EditBookComponent implements OnInit {
   }
   editBook(event){
     let form = JSON.stringify(this.book);
-    console.log(this.book); console.log("----");
-    console.log(form);
-    console.log("editeditclicked");
+   
   	this._bookService.updateBook(this.token, this.book.book_id, form).subscribe(
-      data => { 
-        console.log("update===> after saved"); console.log(data); 
+      data => {  
       	this.book = data.book[0]; 
-      	console.log(data.book);
-      	console.log(data);
-      	console.log("after fetch");
+      	 
         this.router.navigate(['/manage/books/']);
       }, 
       err => console.error(err),
@@ -81,9 +70,7 @@ export class EditBookComponent implements OnInit {
     this._bookService.getGenre().subscribe(
       data => { 
         //this.router.navigate(['/edit/book/'+this.book.id]);
-        this.genres = data[0]; 
-        console.log(this.genres);
-        console.log("after fetch");
+        this.genres = data[0];  
 
       }, 
       err => console.error(err),
@@ -98,9 +85,7 @@ export class EditBookComponent implements OnInit {
    
     this._bookService.getSection().subscribe(
       data => { 
-        this.sections = data[0];         
-        console.log(data[0]);
-        console.log("after fetch section");
+        this.sections = data[0];          
 
       }, 
       err => console.error(err),

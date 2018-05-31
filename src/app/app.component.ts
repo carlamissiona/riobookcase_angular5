@@ -44,10 +44,7 @@ export class AppComponent {
        
       this._bookService.borrowBook(id).subscribe(
         data => { 
-         
       
-          console.log(data);
-          console.log("after borrow");
           alert("You had successfully borrowed a book.");
           this.router.navigate(['']);
         }, 
@@ -57,7 +54,9 @@ export class AppComponent {
    
 
   }
+  
 
+ 
     getBooks() {
     this._bookService.getBooks().subscribe(
      	 

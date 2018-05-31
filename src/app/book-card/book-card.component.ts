@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { BooksService } from '../books.service';
-
+import { Router, Routes, RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../global.service';
 
 
@@ -41,7 +42,7 @@ export class BookCardComponent implements OnInit {
   public genres;
 
 
-  constructor(private _bookService: BooksService, private _globalService: GlobalService) { }
+  constructor(private _bookService: BooksService, private _globalService: GlobalService, private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getBooks();

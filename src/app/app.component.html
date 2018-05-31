@@ -17,9 +17,9 @@
         
             <span style="text-align: right; width:320px;">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" name="search">
+                <input type="text" class="form-control" placeholder="Search"  name="search">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" mat-button type="submit">
+                  <button class="btn btn-default" mat-button (click)="search">
                     <i class="glyphicon glyphicon-search"></i>
                   </button>
                 </div>
@@ -32,10 +32,10 @@
             <ul class="sidebar-nav" style="background:#8A88B3!important;color:black;">
                  
                 <li>
-                    <a href="/login">Login</a>
+                    <a href="">Rio's Book Case</a>
                 </li>
                  
-                <li><a href="/">{{ _globalService.get_loginMessage() }}</a></li>
+                <li><a href="/login">{{ _globalService.get_loginMessage() }}</a></li>
             </ul>
              
         </div> 

@@ -18,7 +18,7 @@ import { GlobalService } from '../global.service';
 export class NewBookComponent implements OnInit {
     
 
-  public book = {title:'' , author: '' , genre:0, section:0};
+  public book = {'id': '', 'title': '', 'author': '' , 'book_id':''};
   public token;
   public id;
   public genres;
@@ -39,16 +39,12 @@ export class NewBookComponent implements OnInit {
 
     let form = JSON.stringify(this.book);
     console.log(this.book); console.log("----");
-    console.log(form);
-    console.log("adding ");
-    this._bookService.addBook(this.token, this.book.id, form).subscribe(
-      data => { 
-        console.log("update===> after saved"); console.log(data);  
+    
+    this._bookService.addBook(this.token, form).subscribe(
+      data => {  
       	this.router.navigate(['/manage/books']);
       	this.book = data.book[0]; 
-       
-      	console.log(data[0]);
-      	console.log("after fetch");
+        
 
       }, 
       err => console.error(err),
@@ -64,9 +60,7 @@ export class NewBookComponent implements OnInit {
   	this._bookService.getGenre().subscribe(
       data => { 
       	//this.router.navigate(['/edit/book/'+this.book.id]);
-      	this.genres = data[0]; 
-      	console.log(this.genres);
-      	console.log("after fetch");
+      	this.genres = data[0];  
 
       }, 
       err => console.error(err),

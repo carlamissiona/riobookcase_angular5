@@ -164,7 +164,7 @@ export class BooksService {
     }
 
 
-    addBook( token: string , id: string , form: string ){
+    addBook( token: string , form: string ){
 
     		// form is stringified array
 
@@ -173,7 +173,6 @@ export class BooksService {
 			let postform:FormData = new FormData();
             
     		postform.append('form', form);
-    		postform.append('id', id);
     		postform.append('token', token );
     		console.log(form);
     		console.log("====+++++++++");

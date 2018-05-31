@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LocalStorageService } from 'ngx-webstorage';
+import { DataTableModule } from 'angular5-data-table';
 
 import { OverviewComponent } from './overview/overview.component';
 import { LoginComponent } from './login/login.component';
@@ -75,6 +76,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserAnimationsModule,
+    DataTableModule.forRoot(),
     BrowserModule,
     MatButtonModule,
     MatToolbarModule ,
