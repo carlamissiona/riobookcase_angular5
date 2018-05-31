@@ -1,27 +1,46 @@
-# Application
+instructions
+Requirement
+1. Install Wamp with 7.2 php for symfony 4 this is required for some module of symfony
+2. Install npm and angular-cli v 1.7.4  
+   npm install -g @angular/cli@1.7.4
+3. Open port 8000 and 42000
+4. Using default 3306 as mysql port
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Extract folders in any directory applications.zip is the angular app and riolib-app.zip is symfony app
 
-## Code scaffolding
+2. Run xampp php and mysql service
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Add database to mysql 
 
-## Build
+4. Import the symfony_riolib.sql in phpmyadmin riolib.zip
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+5. In symfony app run php bin/console fos:user:create - add username, email, password
+       run this  php bin/console fos:user:create  on path where you can see the instructions.txt
 
-## Running unit tests
+6. In symfony app run local symfony server open the symfony directory in cmd and run
+       run this  command below  on path where you can see the instructions.txt
+       php bin/console server:run --port 8000 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+7. Run local angular app (application.zip)
+       run this command on path where you can see the instructions.txt
+       ng serve --port 4200
 
-## Running end-to-end tests
+8. View Site  
+	localhost:4200/
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+9. Login using admin at localhost:4200/login
+	username : chill 
+	password : asdf
 
-## Further help
+	or create your own admin
+	-  In symfony folder run php bin/console fos:user:create - add username, email, password
+	-  After user created
+	-  Run php bin/console fos:user:promote -specify the username and the when asked for role type ROLE_ADMIN not ADMIN_ROLE
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+10. Login as a regular user with no admin rights 
+    localhost:4200/login  
+    username: mlp
+    password: asdf
+
